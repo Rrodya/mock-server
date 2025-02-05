@@ -1,0 +1,38 @@
+{
+  "stubs": [],
+  "sessions": [
+    {
+      "id": "072f936b-f113-456b-91a1-0acfdb76ef59",
+      "title": "session2",
+      "createdAt": "2025-02-02T22:48:07.993Z",
+      "updatedAt": "2025-02-02T23:00:51.237Z",
+      "backendUrl": "http://localhost:3001",
+      "handlersIds": [
+        "0dc8fc42-aa4e-4c5f-b194-e6a2f91d3abe",
+        "c91177a2-6d96-406a-a8e9-c465a6161f01",
+        "6e9be9d6-5ede-4ac7-9f84-c7e0fb9ea8ed",
+        "e937d94c-edc2-425a-967c-b3d7cf9d91c1",
+        "99e297d8-5d00-450e-97b4-8a4ef14adf96"
+      ]
+    }
+  ],
+  "handlers": [
+    {
+      "id": "e937d94c-edc2-425a-967c-b3d7cf9d91c1",
+      "sessionId": "072f936b-f113-456b-91a1-0acfdb76ef59",
+      "isProxy": false,
+      "methodName": "getUsers",
+      "stubId": null
+    },
+    {
+      "id": "99e297d8-5d00-450e-97b4-8a4ef14adf96",
+      "sessionId": "072f936b-f113-456b-91a1-0acfdb76ef59",
+      "isProxy": false,
+      "methodName": "getPosts",
+      "stubId": null
+    }
+  ],
+  "metadata": {
+    "session": null
+  }
+}

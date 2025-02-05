@@ -1,0 +1,4 @@
+.idea
+stubs
+node_modules
+server/db
