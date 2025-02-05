@@ -1,15 +1,6 @@
 {
   "stubs": [],
-  "sessions": [
-    {
-      "id": "42b2d82d-b95e-406e-aaae-5981c244976a",
-      "title": "session2",
-      "createdAt": "2025-02-05T21:47:39.955Z",
-      "updatedAt": "2025-02-05T21:47:39.955Z",
-      "backendUrl": "http://localhost:3001",
-      "handlersIds": []
-    }
-  ],
+  "sessions": [],
   "handlers": [],
   "metadata": {
     "currentSessionId": null
