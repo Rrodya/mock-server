@@ -1,4 +1,5 @@
 .idea
 stubs
 node_modules
-server/db
+./data/db.json
+.env
