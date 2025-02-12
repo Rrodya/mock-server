@@ -14,6 +14,7 @@ const router = express.Router();
  */
 router.post('/file/upload', async (req, res) => {
     try {
+
         if (!req.files?.file) {
             return res.status(400).json({ code: "file_not_uploaded", error: 'No file uploaded' });
         }
@@ -64,10 +65,15 @@ router.post('/', async (req, res) => {
         const { sessionId, name, description, fileId } = req.body;
 
         const filePath = path.join('stubs', fileId + '.json');
-        if (await !fs.existsSync(filePath)) {
-            return res.status(404).json({ code: "file_not_found", error: 'File not found' });
+        
+        try {
+            await fs.access(filePath);
+        } catch {
+            return res.status(404).json({
+                code: "file_node_found",
+                error: "File not found"
+            })
         }
-
 
         const newStub = {
             id: uuidv4(),

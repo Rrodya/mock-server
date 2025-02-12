@@ -10,16 +10,16 @@ const router = express.Router();
  */
 router.post('/', async (req, res) => {
     try {
-        const { title, backendUrl } = req.body;
-        if (!title || !backendUrl) {
-            res.status(400).json({ error: 'Missing required fields {title, backendUrl}' });
+        const { title, baseUrl } = req.body;
+        if (!title || !baseUrl) {
+            return res.status(400).json({ error: 'Missing required fields {title, baseUrl}' });
         }
         const newSession = {
             id: uuidv4(),
             title: title,
             createdAt: new Date(),
             updatedAt: new Date(),
-            backendUrl: backendUrl,
+            baseUrl: baseUrl,
             handlersIds: []
         };
 
@@ -66,15 +66,15 @@ router.delete('/:id', async (req, res) => {
 /**
  * Обновление полей сессии
  * @param {string} [title] Новый заголовок сессии
- * @param {string} [backendUrl] Новый URL бэкенда
+ * @param {string} [baseUrl] Новый URL бэкенда
  * @returns {Session} Обновленная сессия
  */
 router.put('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, backendUrl } = req.body;
+        const { title, baseUrl } = req.body;
 
-        if (!title && !backendUrl) {
+        if (!title && !baseUrl) {
             return res.status(400).json({ error: 'Nothing to update' });
         }
 
@@ -94,7 +94,7 @@ router.put('/:id', async (req, res) => {
             updatedSession = data.sessions[sessionIndex];
 
             if (title) updatedSession.title = title;
-            if (backendUrl) updatedSession.backendUrl = backendUrl;
+            if (baseUrl) updatedSession.baseUrl = baseUrl;
 
             updatedSession.updatedAt = new Date();
 

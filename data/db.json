@@ -1,7 +1,35 @@
 {
-  "stubs": [],
-  "sessions": [],
-  "handlers": [],
+  "stubs": [
+    {
+      "id": "f67a56fe-5565-46f4-bfba-4adeb447a230",
+      "name": "this is my stub 1",
+      "description": "this is desc of this stub",
+      "fileId": "9ababb0c-13ef-44fc-ae5e-2035abd19192",
+      "createdAt": "2025-02-12T18:36:06.650Z",
+      "updatedAt": "2025-02-12T18:36:06.650Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "27d625ff-6cf4-44e4-a774-5a30aab2f510",
+      "title": "session2",
+      "createdAt": "2025-02-09T19:03:40.942Z",
+      "updatedAt": "2025-02-09T19:03:40.942Z",
+      "baseUrl": "http://localhost:3001",
+      "handlersIds": [
+        "5f4b2f8a-44c3-41c6-8814-b52eb4a0a96f"
+      ]
+    }
+  ],
+  "handlers": [
+    {
+      "id": "5f4b2f8a-44c3-41c6-8814-b52eb4a0a96f",
+      "sessionId": "27d625ff-6cf4-44e4-a774-5a30aab2f510",
+      "isProxy": false,
+      "methodName": "getPosts",
+      "stubId": null
+    }
+  ],
   "metadata": {
     "currentSessionId": null
   }

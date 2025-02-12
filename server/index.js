@@ -3,10 +3,9 @@ import cors from 'cors';
 import fileUpload from 'express-fileupload';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import sessionsRouter from './routes/session.js';
-import stubsRouter from './routes/stubs.js';
-import handlerRouter from './routes/handlers.js';
 import rpcProxy from "./routes/rpc-proxy.js";
+import mockRouter from './routes/mock-server.js';
+
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -18,9 +17,7 @@ app.use(fileUpload());
 app.use('/stubs', express.static('stubs'));
 
 // Подключаем роутеры
-app.use('/api/sessions', sessionsRouter);
-app.use('/api/stubs', stubsRouter);
-app.use('/api/handlers', handlerRouter);
+app.use('/mock-server', mockRouter)
 app.use('/', rpcProxy);
 
 // Обработка статических файлов для production
