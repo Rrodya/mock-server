@@ -8,6 +8,7 @@ const router = express.Router();
  * Создание новой сессии
  * @returns {Session}
  */
+
 router.post('/', async (req, res) => {
     try {
         const { title, baseUrl } = req.body;
@@ -32,10 +33,10 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const sessions = db.data.sessions
-        res.json(sessions)
+        const sessions = db.data.sessions;
+        res.status(200).json(sessions);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).send(`<div>Error: ${error.message}</div>`);
     }
 });
 
@@ -108,5 +109,33 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+router.get('/active-session', async (req, res) => {
+    try {
+       const activeSession = db.data.metadata.currentSessionId;
+
+       if (!activeSession) {
+           res.status(404).json({ error: 'No active session' });
+       }
+       res.status(200).json({activeSession: activeSession});
+    } catch(error) {
+        res.status(500).json({ error: error.message });
+    }
+})
+
+router.post('/active-session/:id', async (req, res) => {
+   try {
+       const { id } = req.params;
+       const activeSession = db.data.sessions.find(s => s.id === id);
+       if (!activeSession) {
+          res.status(404).json({ error: 'No active session' });
+       }
+       await db.update(data => {
+           data.metadata.currentSessionId = id;
+       })
+       res.status(500).json({currentSession: id});
+   } catch (error) {
+       res.status(500).json({ error: error.message });
+   }
+})
 
 export default router;

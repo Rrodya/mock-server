@@ -19,6 +19,46 @@
       "handlersIds": [
         "5f4b2f8a-44c3-41c6-8814-b52eb4a0a96f"
       ]
+    },
+    {
+      "id": "468e31c6-ecae-4a28-b5c7-7b0bbc0b2d48",
+      "title": "title of new session",
+      "createdAt": "2025-02-16T14:39:00.420Z",
+      "updatedAt": "2025-02-16T14:39:00.420Z",
+      "baseUrl": "http://example-link",
+      "handlersIds": []
+    },
+    {
+      "id": "ee504e53-6b0c-4a1e-bed3-c134e7bc74d1",
+      "title": "title of new session",
+      "createdAt": "2025-02-16T14:58:57.873Z",
+      "updatedAt": "2025-02-16T14:58:57.873Z",
+      "baseUrl": "http://example-link",
+      "handlersIds": []
+    },
+    {
+      "id": "144dcd48-3888-459b-b543-598f61dce8d8",
+      "title": "title of new session",
+      "createdAt": "2025-02-16T15:01:00.118Z",
+      "updatedAt": "2025-02-16T15:01:00.118Z",
+      "baseUrl": "http://example-link",
+      "handlersIds": []
+    },
+    {
+      "id": "e08da222-1789-41ca-beb4-35fdf263148a",
+      "title": "asdfasdf",
+      "createdAt": "2025-02-16T15:09:50.281Z",
+      "updatedAt": "2025-02-16T15:09:50.281Z",
+      "baseUrl": "localhost:123433",
+      "handlersIds": []
+    },
+    {
+      "id": "265db560-cb7d-481c-a9ee-31efa329c070",
+      "title": "asdfasdf",
+      "createdAt": "2025-02-16T15:11:07.252Z",
+      "updatedAt": "2025-02-16T15:11:07.252Z",
+      "baseUrl": "localhost:123433",
+      "handlersIds": []
     }
   ],
   "handlers": [

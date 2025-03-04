@@ -1,26 +1,46 @@
-<template>
-  <div>
-    <h1>Posts</h1>
-    <div v-for="session in sessions" :key="post.id">
-      {{ session.created_at }}
-    </div>
-    <input v-model="newPost.title" placeholder="Title">
-    <button @click="addPost">Add Post</button>
-  </div>
-</template>
+<script setup lang="ts">
+import {ref} from "vue";
+import SessionList from "@/components/SessionList.vue";
 
-<script setup>
+const selectedSession = ref<string | null>(null);
 
-import {onMounted, ref} from "vue";
-import axios from "axios";
-
-const sessions = ref([]);
-onMounted(async () => {
-  sessions.value = await axios.get("/api/sessions");
-  console.log(sessions.value);
-})
-
-async function getSessions() {
-  return await sessions.value();
+const setActiveSession = (id: string) => {
+  selectedSessionId.value = id;
 }
 </script>
+
+<template>
+  <header>
+    <h2>Header</h2>
+
+ </header>
+
+  <main>
+    <SessionList @set-active-session="setActiveSessionId"></SessionList>
+    <div class="blank"></div>
+  </main>
+</template>
+
+<style scoped>
+  header {
+    display: flex;
+    place-items: center;
+    padding: 10px 0 30px 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  main {
+    display: flex;
+    gap: 30px;
+  }
+
+  .blank {
+    background-color: lightgray;
+    width: 100%;
+  }
+</style>

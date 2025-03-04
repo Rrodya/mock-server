@@ -42,7 +42,6 @@ router.post('/', async (req, res) => {
             stubId: stubId ?? null,
         };
 
-
         await db.update(data => {
             data.handlers.push(newHandler);
             const session = data.sessions.find(s => s.id === sessionId);
@@ -54,6 +53,20 @@ router.post('/', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        await db.update(data => {
+            data.handlers.splice(data.handlers.indexOf(id), 1);
+        })
+
+        res.status(204).end();
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
 
 router.put('/:id', async (req, res) => {
     try {

@@ -3,3 +3,4 @@ stubs
 node_modules
 ./data/db.json
 .env
+.parcel-cache

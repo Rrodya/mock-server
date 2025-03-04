@@ -1,10 +1,13 @@
 {
   "name": "mock-server",
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server",
+    "start": "concurrently \"npm run start:server\" \"cd ./client && npm run dev\"",
+    "start:client": "cd ./client && npm run dev",
+    "start:server": "nodemon server",
+    "build:client": "parcel build client/src/index.html --dist-dir ./client/dist --public-url /mock-server/",
+    "dev": "concurrently \"npm run start:server\"  \"npm run start:client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,11 +19,13 @@
     "express": "^4.21.2",
     "express-fileupload": "^1.5.1",
     "http-proxy-middleware": "^3.0.3",
-    "lowdb": "^7.0.1"
+    "lowdb": "^7.0.1",
+    "npmlog": "^7.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "axios": "^1.7.9",
+    "concurrently": "^9.1.2",
     "nodemon": "^3.1.9",
     "uuid": "^11.0.5",
     "vite": "^6.0.11",
