@@ -1,10 +1,6 @@
 // components/ToastContainer.vue
 <template>
-  <transition-group
-    name="fade"
-    tag="div"
-    class="toast-container"
-  >
+  <transition-group name="fade" tag="div" class="toast-container">
     <Toast
       v-for="toast in toasts"
       :key="toast.id"
@@ -31,11 +27,11 @@ export default {
     }
 
     const removeToast = (id) => {
-      toasts.value = toasts.value.filter(t => t.id !== id)
+      toasts.value = toasts.value.filter((t) => t.id !== id)
     }
 
     return { toasts, addToast, removeToast }
-  }
+  },
 }
 </script>
 
@@ -48,11 +44,13 @@ export default {
   z-index: 1000;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: all 0.3s ease;
 }
 
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }

@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="['toast', `toast-${type}`]"
-    @click="dismiss"
-  >
+  <div :class="['toast-cus', `toast-${type}`]" @click="dismiss">
     {{ message }}
   </div>
 </template>
@@ -15,19 +12,19 @@ export default {
     type: {
       type: String,
       default: 'info',
-      validator: (value) => ['success', 'error', 'info', 'warning'].includes(value)
-    }
+      validator: (value) => ['success', 'error', 'info', 'warning'].includes(value),
+    },
   },
   methods: {
     dismiss() {
       this.$emit('dismiss')
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
-.toast {
+.toast-cus {
   padding: 10px 20px;
   margin-bottom: 10px;
   border-radius: 4px;
@@ -35,8 +32,16 @@ export default {
   cursor: pointer;
 }
 
-.toast-success { background-color: green; }
-.toast-error { background-color: red; }
-.toast-info { background-color: blue; }
-.toast-warning { background-color: orange; }
+.toast-success {
+  background-color: var(--color-accent);
+}
+.toast-error {
+  background-color: var(--color-secondary);
+}
+.toast-info {
+  background-color: var(--color-info);
+}
+.toast-warning {
+  background-color: var(--color-warning);
+}
 </style>

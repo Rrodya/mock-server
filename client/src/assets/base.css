@@ -52,29 +52,18 @@
 
 @font-face {
   font-family: 'GT';
-  src: url("./gteestiprodisplay_regular.otf");
+  src: url('./gteestiprodisplay_regular.otf');
 }
 
 @font-face {
   font-family: 'GTL';
-  src: url("./gteestiprodisplay_light.otf");
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
+  src: url('./gteestiprodisplay_light.otf');
 }
 
 body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
   line-height: 1.6;
   font-family:
     GT,
